@@ -23,13 +23,13 @@ function App() {
   const validate = (values) => {
     const errors = {}
     if (!values.firstName) {
-      errors.firstName = "Firstname is required!"
+      errors.firstName = "First name is required!"
     }
     if (!values.lastName) {
-      errors.lastName = "Lastname is required!"
+      errors.lastName = "Last name is required!"
     }
     if (!values.email) {
-      errors.email = "Email is required!"
+      errors.email = "Email address is required!"
     }
     return errors;
   }
@@ -48,17 +48,17 @@ function App() {
                   }
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                      <label className="form-label">Firstname</label>
+                      <label className="form-label">First name</label>
                       <TextInput size="small" className="form-control" name="firstName" onChange={inputsHandler} value={formValues.firstName} />
                       <div className="text-danger">{formErrors.firstName}</div>
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Lastname</label>
+                      <label className="form-label">Last name</label>
                       <TextInput size="small" className="form-control" name="lastName" onChange={inputsHandler} value={formValues.lastName} />
                       <div className="text-danger">{formErrors.lastName}</div>
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Email</label>
+                      <label className="form-label">Email address</label>
                       <TextInput size="small" className="form-control" name="email" onChange={inputsHandler} value={formValues.email} />
                       <div className="text-danger">{formErrors.email}</div>
                     </div>
