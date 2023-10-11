@@ -1,0 +1,21 @@
+
+.link {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.normal {
+    color:#ff0000;
+}
+.visited {
+    color:#0000ff;
+}
+.hover {
+    color:#ffcc00;
+}
+
+

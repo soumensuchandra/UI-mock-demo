@@ -1,0 +1,25 @@
+/* .continue{ 
+	border: 2px solid black; 
+	color: black; 
+
+} */
+.button {
+    border: none;
+    color: white;
+    padding: 1rem 1.87rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 1.5rem;
+    cursor: pointer;
+  }
+
+  .primary {background-color: #3A2DD2;}
+  .primary:hover {background-color: #4895ef;}
+  .secondary {background-color: #dcdcdc; color: black;}
+  .secondary:hover {background-color: #e7e7e7;}
+  .success {background-color: #4CAF50;}
+  .success:hover {background-color: #37973a;}
+  .danger {background-color: #f44336;}
+  .danger:hover {background-color: #db2b1f;}
