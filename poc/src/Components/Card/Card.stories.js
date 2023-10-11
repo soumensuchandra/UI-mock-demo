@@ -11,7 +11,7 @@ const Template = args => <Card {...args} />
 
 export const Layout1 = Template.bind({})
 Layout1.args = {
-    name: 'layout1',
+    name: 'Title',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
 }
 

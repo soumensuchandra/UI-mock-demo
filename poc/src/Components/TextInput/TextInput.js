@@ -5,7 +5,7 @@ function TextInput(props) {
     console.log('props', props)
     const { size = 'medium', name, ...rest } = props
     return (
-        <input type="text" name={name} className={`input ${size}`} {...rest} />
+        <input type="text" name={name} className={`input form-control ${size}`} {...rest} />
     )
 }
 export default TextInput;
