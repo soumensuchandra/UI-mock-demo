@@ -3,13 +3,14 @@ import './App.css';
 import { useState } from 'react';
 import Button from './Components/Button';
 import TextInput from './Components/TextInput';
+import data from './data/data.json';
 
 function App() {
   const initialValues = { firstName: '', lastName: '', email: '' }
   const [formValues, setFormValues] = useState(initialValues)
   const [isSubmit, setIsSubmit] = useState(false)
   const [formErrors, setFormErrors] = useState({})
-
+  console.log('data', data)
   const inputsHandler = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
 
@@ -19,6 +20,16 @@ function App() {
     setFormErrors(validate(formValues))
     setIsSubmit(true)
   }
+  const validateEmail = (emailAddress) => {
+    let flag = 0;
+    data.forEach((item) => {
+      if (item.email === emailAddress) {
+        flag = 1;
+      }
+    })
+    return flag;
+  }
+
 
   const validate = (values) => {
     const errors = {}
@@ -30,6 +41,11 @@ function App() {
     }
     if (!values.email) {
       errors.email = "Email address is required!"
+    } else {
+      let isValidEmail = validateEmail(values.email)
+      if (isValidEmail === 0) {
+        errors.email = "Email Address doesnot matches with our records"
+      }
     }
     return errors;
   }
