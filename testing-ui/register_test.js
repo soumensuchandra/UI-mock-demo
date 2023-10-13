@@ -1,5 +1,74 @@
 Feature('CodeceptJS demo -- Registration Form demo');
 
+Scenario('Image Compare', async ({ I }) => {
+    I.amOnPage('/product');
+    let productVal = await I.executeScript(function () {
+        let [x1, x2, y1, y2] = [0, 0, 0, 0];
+        let distance = -1;
+        const elementOne = document.getElementById("productImg");
+        const elementTwo = document.getElementById("productImageText");
+        x1 = elementOne.offsetTop;
+        y1 = elementOne.offsetLeft;
+        x2 = elementTwo.offsetTop;
+        y2 = elementTwo.offsetLeft;
+        const xDistance = x1 - x2;
+        const yDistance = y1 - y2;
+        distance = Math.sqrt(
+            (xDistance * xDistance) + (yDistance * yDistance)
+        );
+        return distance;
+    })
+
+    I.amOnPage('/order');
+    let orderVal = await I.executeScript(function () {
+        let [x1, x2, y1, y2] = [0, 0, 0, 0];
+        let distance = -1;
+        const elementOne = document.getElementById("orderImg");
+        const elementTwo = document.getElementById("orderImageText");
+        x1 = elementOne.offsetTop;
+        y1 = elementOne.offsetLeft;
+        x2 = elementTwo.offsetTop;
+        y2 = elementTwo.offsetLeft;
+        const xDistance = x1 - x2;
+        const yDistance = y1 - y2;
+        distance = Math.sqrt(
+            (xDistance * xDistance) + (yDistance * yDistance)
+        );
+        return distance;
+    })
+
+    I.amOnPage('/about');
+    let aboutVal = await I.executeScript(function () {
+        let [x1, x2, y1, y2] = [0, 0, 0, 0];
+        let distance = -1;
+        const elementOne = document.getElementById("aboutImg");
+        const elementTwo = document.getElementById("aboutImageText");
+        x1 = elementOne.offsetTop;
+        y1 = elementOne.offsetLeft;
+        x2 = elementTwo.offsetTop;
+        y2 = elementTwo.offsetLeft;
+        const xDistance = x1 - x2;
+        const yDistance = y1 - y2;
+        distance = Math.sqrt(
+            (xDistance * xDistance) + (yDistance * yDistance)
+        );
+        return distance;
+    })
+
+    console.log('orderVal',orderVal,'productVal',productVal, 'aboutVal',aboutVal);
+    if (orderVal === productVal) {
+        console.log('Order page and product page image are in same place');
+    } else {
+        console.log('Order page and product image are not in same place')
+    }
+
+    if (productVal === aboutVal) {
+        console.log('Product page and about page image are in same place');
+    } else {
+        console.log('Product page and about image are not in same place')
+    }
+});
+
 Scenario('Registration Form Success', async ({ I }) => {
     I.amOnPage('http://localhost:3000');
     I.see('First name');
@@ -10,7 +79,6 @@ Scenario('Registration Form Success', async ({ I }) => {
     I.wait(2);
     I.see('Email address');
     I.fillField('email', 'sachin.t@gmail.com');
-    I.wait(2);
     I.click('Continue');
     I.see('Registered Successfully');
     I.wait(2);
